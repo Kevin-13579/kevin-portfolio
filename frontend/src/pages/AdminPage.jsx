@@ -71,12 +71,12 @@ function AdminPage() {
   const fetchData = () => {
     setLoading(true);
     Promise.all([
-      axios.get('http://localhost:8080/api/profile'),
-      axios.get('http://localhost:8080/api/projects'),
-      axios.get('http://localhost:8080/api/skills'),
-      axios.get('http://localhost:8080/api/certifications'),
-      axios.get('http://localhost:8080/api/events'),
-      axios.get('http://localhost:8080/api/timeline')
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/profile'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/projects'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/skills'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/certifications'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/events'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/timeline')
     ])
       .then(([profileRes, projectsRes, skillsRes, certsRes, eventsRes, timelineRes]) => {
         setProfile(profileRes.data);
@@ -90,7 +90,7 @@ function AdminPage() {
       .catch(error => {
         console.error("Error loading admin dashboard details:", error);
         setLoading(false);
-        showNotification("Failed to fetch backend data. Make sure backend is running on http://localhost:8080", "error");
+        showNotification("Failed to fetch backend data. Make sure backend is running on https://kevin-portfolio-k577.onrender.com", "error");
       });
   };
 
@@ -150,7 +150,7 @@ function AdminPage() {
 
   const handleProfileSubmit = (e) => {
     e.preventDefault();
-    axios.put('http://localhost:8080/api/profile', profile)
+    axios.put('https://kevin-portfolio-k577.onrender.com/api/profile', profile)
       .then(response => {
         setProfile(response.data);
         showNotification("Profile details successfully updated!", "success");
@@ -165,7 +165,7 @@ function AdminPage() {
   const handleProjectSubmit = (e) => {
     e.preventDefault();
     if (projectForm.id) {
-      axios.put(`http://localhost:8080/api/projects/${projectForm.id}`, projectForm)
+      axios.put(`https://kevin-portfolio-k577.onrender.com/api/projects/${projectForm.id}`, projectForm)
         .then(res => {
           setProjects(projects.map(p => p.id === projectForm.id ? res.data : p));
           showNotification("Project updated successfully!", "success");
@@ -173,7 +173,7 @@ function AdminPage() {
         })
         .catch(() => showNotification("Failed to update project.", "error"));
     } else {
-      axios.post('http://localhost:8080/api/projects', projectForm)
+      axios.post('https://kevin-portfolio-k577.onrender.com/api/projects', projectForm)
         .then(res => {
           setProjects([...projects, res.data]);
           showNotification("Project added successfully!", "success");
@@ -189,7 +189,7 @@ function AdminPage() {
 
   const handleDeleteProject = (id) => {
     if (window.confirm("Delete project item?")) {
-      axios.delete(`http://localhost:8080/api/projects/${id}`)
+      axios.delete(`https://kevin-portfolio-k577.onrender.com/api/projects/${id}`)
         .then(() => {
           setProjects(projects.filter(p => p.id !== id));
           showNotification("Project deleted successfully.", "success");
@@ -204,7 +204,7 @@ function AdminPage() {
   // 3. SKILL METHODS
   const handleSkillSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/api/skills', skillForm)
+    axios.post('https://kevin-portfolio-k577.onrender.com/api/skills', skillForm)
       .then(res => {
         setSkills([...skills, res.data]);
         setSkillForm({ name: '', category: 'Frontend' });
@@ -214,7 +214,7 @@ function AdminPage() {
   };
 
   const handleDeleteSkill = (id) => {
-    axios.delete(`http://localhost:8080/api/skills/${id}`)
+    axios.delete(`https://kevin-portfolio-k577.onrender.com/api/skills/${id}`)
       .then(() => {
         setSkills(skills.filter(s => s.id !== id));
         showNotification("Skill removed successfully.", "success");
@@ -231,8 +231,8 @@ function AdminPage() {
     };
 
     const request = timelineForm.id
-      ? axios.put(`http://localhost:8080/api/timeline/${timelineForm.id}`, preparedItem)
-      : axios.post('http://localhost:8080/api/timeline', preparedItem);
+      ? axios.put(`https://kevin-portfolio-k577.onrender.com/api/timeline/${timelineForm.id}`, preparedItem)
+      : axios.post('https://kevin-portfolio-k577.onrender.com/api/timeline', preparedItem);
 
     request
       .then(res => {
@@ -260,7 +260,7 @@ function AdminPage() {
 
   const handleDeleteTimeline = (id) => {
     if (window.confirm("Delete timeline item?")) {
-      axios.delete(`http://localhost:8080/api/timeline/${id}`)
+      axios.delete(`https://kevin-portfolio-k577.onrender.com/api/timeline/${id}`)
         .then(() => {
           setTimelineItems(timelineItems.filter(item => item.id !== id));
           showNotification("Timeline item removed.", "success");
@@ -288,7 +288,7 @@ function AdminPage() {
   const handleCertSubmit = (e) => {
     e.preventDefault();
     if (certForm.id) {
-      axios.put(`http://localhost:8080/api/certifications/${certForm.id}`, certForm)
+      axios.put(`https://kevin-portfolio-k577.onrender.com/api/certifications/${certForm.id}`, certForm)
         .then(res => {
           setCertifications(certifications.map(c => c.id === certForm.id ? res.data : c));
           showNotification("Certification updated successfully!", "success");
@@ -296,7 +296,7 @@ function AdminPage() {
         })
         .catch(() => showNotification("Failed to update certification.", "error"));
     } else {
-      axios.post('http://localhost:8080/api/certifications', certForm)
+      axios.post('https://kevin-portfolio-k577.onrender.com/api/certifications', certForm)
         .then(res => {
           setCertifications([...certifications, res.data]);
           showNotification("Certification registered!", "success");
@@ -312,7 +312,7 @@ function AdminPage() {
 
   const handleDeleteCert = (id) => {
     if (window.confirm("Delete certification item?")) {
-      axios.delete(`http://localhost:8080/api/certifications/${id}`)
+      axios.delete(`https://kevin-portfolio-k577.onrender.com/api/certifications/${id}`)
         .then(() => {
           setCertifications(certifications.filter(c => c.id !== id));
           showNotification("Certification removed.", "success");
@@ -328,7 +328,7 @@ function AdminPage() {
   const handleEventSubmit = (e) => {
     e.preventDefault();
     if (eventForm.id) {
-      axios.put(`http://localhost:8080/api/events/${eventForm.id}`, eventForm)
+      axios.put(`https://kevin-portfolio-k577.onrender.com/api/events/${eventForm.id}`, eventForm)
         .then(res => {
           setEvents(events.map(ev => ev.id === eventForm.id ? res.data : ev));
           showNotification("Event updated successfully!", "success");
@@ -336,7 +336,7 @@ function AdminPage() {
         })
         .catch(() => showNotification("Failed to update event.", "error"));
     } else {
-      axios.post('http://localhost:8080/api/events', eventForm)
+      axios.post('https://kevin-portfolio-k577.onrender.com/api/events', eventForm)
         .then(res => {
           setEvents([...events, res.data]);
           showNotification("Event registered successfully!", "success");
@@ -352,7 +352,7 @@ function AdminPage() {
 
   const handleDeleteEvent = (id) => {
     if (window.confirm("Delete event item?")) {
-      axios.delete(`http://localhost:8080/api/events/${id}`)
+      axios.delete(`https://kevin-portfolio-k577.onrender.com/api/events/${id}`)
         .then(() => {
           setEvents(events.filter(ev => ev.id !== id));
           showNotification("Event removed.", "success");

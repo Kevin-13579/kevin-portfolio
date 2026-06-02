@@ -20,12 +20,12 @@ function LandingPage() {
   useEffect(() => {
     // Fetch all portfolio components concurrently
     Promise.all([
-      axios.get('http://localhost:8080/api/profile'),
-      axios.get('http://localhost:8080/api/projects'),
-      axios.get('http://localhost:8080/api/skills'),
-      axios.get('http://localhost:8080/api/certifications'),
-      axios.get('http://localhost:8080/api/events'),
-      axios.get('http://localhost:8080/api/timeline')
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/profile'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/projects'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/skills'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/certifications'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/events'),
+      axios.get('https://kevin-portfolio-k577.onrender.com/api/timeline')
     ])
       .then(([profileRes, projectsRes, skillsRes, certsRes, eventsRes, timelineRes]) => {
         setProfile(profileRes.data);

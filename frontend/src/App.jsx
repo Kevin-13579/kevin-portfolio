@@ -19,8 +19,16 @@ function App() {
   const [typedLine, setTypedLine] = useState('');
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [redirectToLanding, setRedirectToLanding] = useState(false);
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
 
   useEffect(() => {
+    // If user navigated directly to a non-root path, skip the splash/redirect
+    if (currentPath !== '/') {
+      setShowSplash(false);
+      setRedirectToLanding(false);
+      return;
+    }
+
     const splashTimer = setTimeout(() => {
       setShowSplash(false);
       setRedirectToLanding(true);
