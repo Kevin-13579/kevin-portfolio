@@ -1,0 +1,199 @@
+.splash-viewport {
+  width: 100vw;
+  height: 100vh;
+  background: #020205;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeInInitial 0.6s ease-out;
+}
+
+@keyframes fadeInInitial {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.terminal-shell {
+  width: 100%;
+  max-width: 750px;
+  background: rgba(5, 5, 12, 0.85) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(99, 102, 241, 0.2) !important;
+  border-radius: 12px;
+  animation: slideUpIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUpIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.terminal-shell:hover {
+  box-shadow: 0 40px 80px rgba(99, 102, 241, 0.3) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+}
+
+.terminal-window-bar {
+  background: rgba(15, 15, 30, 0.9);
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.terminal-shell:hover .terminal-window-bar {
+  background: rgba(20, 20, 40, 0.95);
+  border-bottom-color: rgba(99, 102, 241, 0.2);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.dot.red { 
+  background: #ef4444;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+.dot.yellow { 
+  background: #f59e0b;
+  animation: dotPulse 2.5s ease-in-out infinite;
+}
+.dot.green { 
+  background: #10b981;
+  animation: dotPulse 3s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: none; }
+  50% { box-shadow: 0 0 8px currentColor; }
+}
+
+.dot:hover {
+  transform: scale(1.3);
+}
+
+.bar-title {
+  color: #64748b;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.terminal-shell:hover .bar-title {
+  color: #6366f1;
+}
+
+.terminal-body-output {
+  padding: 2.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: #10b981;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  height: 400px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.terminal-primary-identity {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  animation: fadeInScale 0.8s ease-out;
+  background: linear-gradient(135deg, #ffffff, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.terminal-sub-identity {
+  color: #6366f1;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  animation: fadeInScale 0.8s ease-out 0.1s both;
+  transition: all 0.3s ease;
+}
+
+.terminal-shell:hover .terminal-sub-identity {
+  color: #a855f7;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.terminal-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.5rem;
+  animation: expandWidth 0.6s ease-out 0.2s both;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.terminal-log-row {
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typeReveal 0.3s steps(40, end) forwards;
+  color: #10b981;
+  transition: all 0.2s ease;
+}
+
+.terminal-log-row:hover {
+  color: #6366f1;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.terminal-cursor-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: linear-gradient(135deg, #10b981, #6366f1);
+  animation: blink 0.8s infinite, glow 2s ease-in-out infinite;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes typeReveal {
+  from { width: 0; }
+  to { width: 100%; }
+}

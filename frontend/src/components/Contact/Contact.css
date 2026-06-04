@@ -1,0 +1,193 @@
+.contact-bounded-surface {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4.5rem 4rem 2rem 4rem;
+  animation: fadeInScale 0.8s ease-out;
+}
+
+.contact-main-headline {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeInScale 0.8s ease-out;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  animation: fadeInScale 0.8s ease-out 0.1s both;
+}
+
+.matrix-pill {
+  background: var(--glass-border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.matrix-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.matrix-pill:hover::before {
+  left: 100%;
+}
+
+.matrix-pill:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: var(--accent-glow);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.25);
+}
+
+.matrix-lbl {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out;
+}
+
+.matrix-pill:hover .matrix-lbl {
+  color: var(--accent-glow);
+}
+
+.matrix-val {
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.6s ease-out 0.05s both;
+}
+
+.matrix-pill:hover .matrix-val {
+  color: var(--accent-glow);
+}
+
+.contact-interactive-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 4rem;
+  animation: fadeInScale 0.8s ease-out 0.15s both;
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+
+.contact-interactive-form input, .contact-interactive-form textarea {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  padding: 1.2rem;
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="light"] .contact-interactive-form input,
+[data-theme="light"] .contact-interactive-form textarea {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.contact-interactive-form input::placeholder, 
+.contact-interactive-form textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.contact-interactive-form input:focus, 
+.contact-interactive-form textarea:focus {
+  border-color: var(--accent-glow);
+  background: var(--glass-card);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  transform: scale(1.01);
+}
+
+.form-dispatch-trigger {
+  background: linear-gradient(135deg, var(--text-primary), rgba(255, 255, 255, 0.8));
+  color: var(--bg-canvas);
+  border: none;
+  padding: 1.2rem;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.form-dispatch-trigger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.form-dispatch-trigger:hover::before {
+  left: 100%;
+}
+
+.form-dispatch-trigger:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+}
+
+.form-dispatch-trigger:active {
+  transform: translateY(-1px);
+}
+
+.footer-copyright-row {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  animation: fadeInScale 0.8s ease-out 0.2s both;
+  transition: all 0.3s ease;
+}
+
+.footer-copyright-row:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+@media (max-width: 650px) {
+  .contact-matrix-grid, .form-row-split { grid-template-columns: 1fr; }
+}
