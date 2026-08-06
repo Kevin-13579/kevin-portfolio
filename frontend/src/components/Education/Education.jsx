@@ -12,10 +12,6 @@ const Education = () => {
           <h3 className="edu-degree-label">BCA Specialised in DevOps & Automation</h3>
           <h4 className="edu-college-label">Rathinam College of Arts and Science</h4>
           <p className="edu-loc">Coimbatore, Tamil Nadu</p>
-          <div className="edu-metrics-badge">
-            <span className="metrics-lbl">Cumulative Grade Point Average</span>
-            <span className="metrics-val">7.70 / 10.0 CGPA</span>
-          </div>
         </div>
 
         <div className="edu-right-wing glass-surface">

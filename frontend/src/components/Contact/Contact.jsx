@@ -18,14 +18,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact-interactive-form" onSubmit={e => e.preventDefault()}>
-          <div className="form-row-split">
-            <input type="text" placeholder="Identity / Enterprise Name" required />
-            <input type="email" placeholder="Return Communication Address" required />
-          </div>
-          <textarea placeholder="Outline your functional project parameters or hackathon scope details..." rows="5" required></textarea>
-          <button type="submit" className="form-dispatch-trigger">Transmit Parameters</button>
-        </form>
+        {/* Form removed as per request */}
 
         <footer className="footer-copyright-row">
           <p>© {new Date().getFullYear()} KEVIN P • FULL STACK SYSTEM</p>

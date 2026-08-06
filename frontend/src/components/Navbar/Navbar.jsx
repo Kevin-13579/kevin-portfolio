@@ -11,8 +11,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         <div className="navbar-navigation-links">
           <a href="#home">Home</a>
           <a href="#projects">Work</a>
+          <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
+          <a href="#activities">Activities</a>
+          <a href="#certifications">Certifications</a>
           <a href="#contact">Contact</a>
         </div>
         <button className="navbar-theme-toggler" onClick={toggleTheme}>

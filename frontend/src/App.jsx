@@ -5,6 +5,9 @@ import Hero from './components/Hero/Hero';
 import Projects from './components/Projects/Projects';
 import Experience from './components/Experience/Experience';
 import Education from './components/Education/Education';
+import Skills from './components/Skills/Skills';
+import Activities from './components/Activities/Activities';
+import Certifications from './components/Certifications/Certifications';
 import Contact from './components/Contact/Contact';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
@@ -31,8 +34,11 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero theme={theme} />
       <Projects />
+      <Skills />
       <Experience />
       <Education />
+      <Activities />
+      <Certifications />
       <Contact />
     </div>
   );
